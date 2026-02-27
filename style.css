@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Mono:wght@300;400;500&display=swap');
 
+html{
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
 
 #canvases {
     display: flex;
@@ -24,8 +29,51 @@
 }
 
 #canvas1, #canvas2 {
-    height: 500px;
+    height: 400px;
     display: block;
+}
+
+.ruler-canvas{
+    display: block;
+    background: #f5f0e8;
+    width: 100%;
+    font-size: 10px;
+    font-family: 'DM Mono', monospace;
+}
+
+.freq-ruler{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    font-size: 0.6rem;
+    color: #8a7d6a;
+    letter-spacing: 0.05rem;
+}
+
+#legend{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    border-top: 1px solid #d4c9b0;
+    margin-top: 0.5rem;
+}
+
+.legend-item{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    color: #8a7d6a;
+}
+
+.legend-dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
 }
 
 
@@ -33,6 +81,7 @@ body {
     background: #f5f0e8;
     font-family: 'DM Mono', monospace;
     padding: 2rem;
+    margin: 0;
 }
 
 header {
@@ -78,6 +127,16 @@ h1 em{
 .style-tabs button:hover {
     color: #1a1510;
     background: rgba(0,0,0,0.02);
+}
+
+.style-tabs button.active-slot1{
+    color: #c1440e;
+    border-bottom: 3px solid #c1440e;
+}
+
+.style-tabs button.active-slot2{
+    color: #2a7a3e;
+    border-bottom: 1.5px solid #2a7a3e;
 }
 
 #stopBtn, #comparisonBtn, #closeComparison{

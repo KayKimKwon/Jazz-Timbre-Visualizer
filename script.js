@@ -22,12 +22,29 @@ const styles = [
     const canvas1 = document.getElementById("canvas1")
     const canvas2 = document.getElementById("canvas2")
 
+    function drawRuler(canvasID){
+        const canvas = document.getElementById(canvasID)
+        canvas.width = window.innerWidth
+        const ctx = canvas.getContext("2d")
+        const logMin = Math.log10(20)
+        const logMax = Math.log10(22050)
+        const freqValues = [20, 60, 250, 500, 2000, 6000, 20000]
+        const freqLabels = ["20", "60", "250", "500", "2k", "6k", "20k"]
+        for (let i = 0; i < freqValues.length; i++){
+            const freq = freqValues[i]
+            const label = freqLabels[i]
+            const x = ((Math.log10(freq) - logMin) / (logMax - logMin)) * canvas.width
+            ctx.fillRect(x, 0,1,5)
+            ctx.fillText(label,x-5,18)
+        }
+    }
+
     window.onload = function(){
         canvas1.width = window.innerWidth
         canvas2.width = window.innerWidth
+        drawRuler("ruler1")
+        drawRuler("ruler2")
     }
-
-
 
 
     function getColor(freq){
@@ -39,10 +56,12 @@ const styles = [
         return "#a07de0"            
     }
 
+
     function loadStyle(style, slotNum) {
         const slot = slots[slotNum]
         const canvas = document.getElementById(slot.canvasID)
         const ctx = canvas.getContext("2d")
+        const activeClass = "active-slot" + slotNum
 
         if (slot.isPlaying) {
             slot.currentSource.stop()
@@ -81,7 +100,14 @@ const styles = [
                 gain.connect(slot.analyser)
                 slot.analyser.connect(audioCtx.destination)
                 slot.currentSource.start()
-                document.getElementById("label" + slotNum).textContent = style.name
+                const str = "Slot " + slotNum + ":" + " " + style.name
+                document.getElementById("label" + slotNum).textContent = str
+
+                document.querySelectorAll(".style-tabs button").forEach(function(btn) {
+                    btn.classList.remove(activeClass)
+                    if (btn.dataset.name == style.name) btn.classList.add(activeClass)
+                })
+
                 slot.currentSource.onended = function(){
                     slot.isPlaying = false
                 }
@@ -130,6 +156,7 @@ const styles = [
         
         const button = document.createElement("button")
         button.textContent = style.name
+        button.dataset.name = style.name
         
         button.addEventListener("click", function() {
             loadStyle(style,activeSlot)
@@ -170,6 +197,11 @@ const styles = [
         activeSlot = 1
         document.getElementById("closeComparison").style.display = "none"
         document.getElementById("comparisonBtn").style.display = "inline-block"
+
+        document.querySelectorAll(".style-tabs button").forEach(function(btn) {
+            btn.classList.remove("active-slot2")
+        })
+        
     })
 
 
