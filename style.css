@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=DM+Mono:wght@300;400;500&display=swap');
+
+
+#canvases {
+    display: flex;
+    gap: 10px;
+}
+
+.canvas-slot{
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-label{
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: #8a7d6a;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #d4c9b0;
+    margin-bottom: 0.5rem;
+}
+
+#canvas1, #canvas2 {
+    height: 500px;
+    display: block;
+}
+
+
+body {
+    background: #f5f0e8;
+    font-family: 'DM Mono', monospace;
+    padding: 2rem;
+}
+
+header {
+    border-bottom: 2px solid #1a1510;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+h1{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+h1 em{
+    font-style: italic;
+    color: #c1440e;
+}
+
+.style-tabs{
+    display:flex;
+    overflow-x: auto;
+    border-bottom: 1px solid #d4c9b0;
+    margin-bottom: 1.5rem;
+}
+
+.style-tabs button{
+    flex-shrink: 0;
+    padding: 0.9rem 1.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8a7d6a;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-right: 1px solid #d4c9b0;
+    border-bottom: 3px solid transparent;
+    transition: all 0.15s;
+}
+
+.style-tabs button:hover {
+    color: #1a1510;
+    background: rgba(0,0,0,0.02);
+}
+
+#stopBtn, #comparisonBtn, #closeComparison{
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border: 1px solid #8a7d6a;
+    color: #8a7d6a;
+    cursor: pointer;
+    background: none;
+    transition: all 0.15s;
+    margin-bottom: 1rem;
+}
+
+#stopBtn:hover, #comparisonBtn:hover, #closeComparison:hover{
+    color: #c1440e;
+    border:#c1440e;
+}

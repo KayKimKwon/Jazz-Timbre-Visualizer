@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jazz Visualizer</title>
+  <h1>Jazz <em>Timbre</em> Spectrum</h1>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <button id="comparisonBtn">Add Comparison</button>
+    <button id="closeComparison" style="display:none"> Close Comparison </button>
+
+    <div id="styleTab" class="style-tabs"></div>
+
+    <div id="canvases">
+        <div class="canvas-slot">
+            <div class="canvas-label" id="label1"></div>
+            <canvas id="canvas1"></canvas>
+        </div>
+        <div class="canvas-slot" id="slot2Container" style="display:none">
+            <div class="canvas-label" id="label2"></div>
+            <canvas id="canvas2"></canvas>
+        </div>
+    </div>
+
+  <button id="stopBtn"> Stop Playing </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
